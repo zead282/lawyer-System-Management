@@ -1,5 +1,5 @@
-import { Schema,model, Types } from "mongoose";
-import { userRole, userSignUpWith } from "../../utils/utils.index.js";
+import mongoose, { Schema,model, Types } from "mongoose";
+import { userRole, userSignUpWith } from "../../src/utils/utils.index.js";
 /**
  * User Model
  *  - name
@@ -48,4 +48,4 @@ const userSchema = new Schema({
     versionKey: false
 })
 
-export const User = model("User",userSchema)
+export default mongoose.model.User || model("User",userSchema)
