@@ -1,7 +1,7 @@
 
-import userrouter from'./User/user.routes.js'
+import userRouter from'./User/user.routes.js'
 
 export{
-    userrouter,
+    userRouter,
  
 }

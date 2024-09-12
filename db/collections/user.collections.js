@@ -32,7 +32,7 @@ const userSchema = new Schema({
     userRole:{
         type: String,
         enum : Object.values(userRole),
-        required: true
+        default: userRole.user
     },
     signUpWith :{
         type: String,
@@ -48,4 +48,4 @@ const userSchema = new Schema({
     versionKey: false
 })
 
-export default mongoose.model.User || model("User",userSchema)
+export  const User =  mongoose.model.User || model("User",userSchema)
