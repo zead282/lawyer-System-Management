@@ -1,6 +1,6 @@
 
 import jwt from 'jsonwebtoken'
-import User from '../../db/collections/user.collections.js'
+import {User} from '../../db/collections/user.collections.js'
 
 export const authntiaction=()=>{
     return async(req,res,next)=>{
