@@ -2,7 +2,7 @@ import { connect } from "mongoose";
 
 
  const dbconnect = async () => {
-    await connect("mongodb://127.0.0.1:27017/E-Commerce")
+    await connect(process.env.URL_CONNECTION)
   .then(() => {
     console.log('Successfully connected to the MongoDB database');
   })

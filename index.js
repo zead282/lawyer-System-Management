@@ -1,10 +1,11 @@
 import express from "express";
-import dbconnect from "./db/dbconnections.js";
+import { config } from "dotenv";
+import { initiateApp } from "./src/initiate-app.js";
+
+config({path:'./config/config.env'})
 
 const app = express();
 
-dbconnect();
 
-app.listen(3000, () => {
-    console.log("Server started on port 3000");
-});
+
+initiateApp(app,express)
