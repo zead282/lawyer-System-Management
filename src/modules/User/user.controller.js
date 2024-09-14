@@ -1,5 +1,5 @@
 import bcryptjs from "bcryptjs"
-import { User } from "../../../db/collections/collections.index.js"
+import { User, UserQuestions } from "../../../db/collections/collections.index.js"
 import ErrorClass from "../../utils/Error-class.js"
 import sendemailservices from "../../services/send-email.service.js"
 import jwt from 'jsonwebtoken'
@@ -57,7 +57,7 @@ export const logIn = async (req,res,next)=>{
     res.status(200).json({message: "Logged in Succsessfully",token})
 }
 
-//////verfiy email///
+//////verfiy email/// 
 
 export const verfiyemail = async (req,res,next)=>{
 
@@ -71,5 +71,31 @@ export const verfiyemail = async (req,res,next)=>{
             success: true,
             message: 'Email verified successfully, please try to login'
         })
+
+}
+
+
+
+/**
+ * @AhmedElmahhdy 
+ * @api /ask-lawyer 
+ * take data from user and save it at ask-lawyer collection at db
+ * 
+ * 
+ *
+ */
+export const askLawyer = async (req,res,next)=>{
+    const {firstName,lastName,email,phone,title,legalInquiry}=req.body
+
+    const newQuestion = new UserQuestions({
+        firstName,
+        lastName,
+        email,
+        phone,
+        title,
+        legalInquiry
+    })
+    await newQuestion.save()
+    res.status(200).json({message: "question added successfully"})
 
 }
