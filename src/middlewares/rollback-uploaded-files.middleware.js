@@ -1,4 +1,4 @@
-/*import cloudinaryConnection from "../utils/cloudinary.js"
+import cloudinaryConnection from "../utils/cloudinary.js"
 
 
 export const rollbackuploadfiles=async(req,res,next)=>{
@@ -8,4 +8,4 @@ export const rollbackuploadfiles=async(req,res,next)=>{
             await cloudinaryConnection().api.delete_folder(req.folder);
         }
         next()
-}*/
+}
