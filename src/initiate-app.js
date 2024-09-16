@@ -15,6 +15,7 @@ export const initiateApp = (app, express) => {
     dbconnect()
 
     app.use('/user',router.userRouter)
+    app.use('/lawyer',router.lawyerRouters)
 
     app.use(globalResponse)
     app.listen(port, () => console.log(`Example app listening on port ${port}!`))

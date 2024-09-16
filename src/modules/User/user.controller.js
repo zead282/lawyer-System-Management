@@ -52,7 +52,7 @@ export const logIn = async (req,res,next)=>{
     if(!isPasswordMatch) return next(new ErrorClass("Email or Password is not correct ", 400))
 
      //generate token
-     const token=jwt.sign({_id:user._id,email:user.email},process.env.JWT_LOGIN_SIGNATURE,{expiresIn:'1d'})   
+    const token=jwt.sign({_id:user._id,email:user.email},process.env.JWT_LOGIN_SIGNATURE,{expiresIn:"1d"})   
 
     res.status(200).json({message: "Logged in Succsessfully",token})
 }
