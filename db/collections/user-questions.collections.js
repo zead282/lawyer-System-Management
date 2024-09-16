@@ -1,4 +1,5 @@
 import { Schema, model, Types, Mongoose } from "mongoose";
+import { userQuestionStatus } from "../../src/utils/utils.index.js";
 
 /**
  * User Questions Model
@@ -8,6 +9,7 @@ import { Schema, model, Types, Mongoose } from "mongoose";
  *    - Phone 
  *    - Title
  *    - Legal Inquiry
+ *    - Status
  */
 
 const userQuestionsSchema = new Schema({
@@ -34,6 +36,11 @@ const userQuestionsSchema = new Schema({
     legalInquiry:{
         type: String,
         required: true
+    },
+    status:{
+        type: String,
+        enum: Object.values(userQuestionStatus),
+        default:userQuestionStatus.Pending
     }
 },{
     timestamps: true,
