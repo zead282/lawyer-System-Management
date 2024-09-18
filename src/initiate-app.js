@@ -19,8 +19,10 @@ export const initiateApp = (app, express) => {
     app.use('/user',router.userRouter)
     app.use('/artical',router.articalrouter)
     app.use('/sub-artical',router.subarticalrouter)
+    app.use('/consultation',router.consultationrouter)
     app.use('/lawyer',router.lawyerRouters)
     app.use('/admin',router.adminRoutes)
+    
 
     app.use(globalResponse,rollbacksaveddocuments,rollbackuploadfiles)
     app.listen(port, () => console.log(`Example app listening on port ${port}!`))
