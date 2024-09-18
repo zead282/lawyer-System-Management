@@ -42,7 +42,14 @@ const userSchema = new Schema({
     isEmailVerified:{
         type: Boolean,
         default: false
-    }
+    },
+    userImage:{
+        secure_url:{type:String,required:true},
+        public_id:{type:String,required:true,unique:true}
+      },
+      folderid:{
+          type:String
+      }
 },{
     timestamps: true,
     versionKey: false

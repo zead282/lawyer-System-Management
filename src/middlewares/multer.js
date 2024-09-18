@@ -3,7 +3,7 @@ import generateuniquestring from "../utils/generate-unique-str.js";
 import { allowedExtensions } from "../utils/allowed-extensions.js";
 
 export const multerhost=({extensions = allowedExtensions.image})=>{
-
+    
     const storage=multer.diskStorage({
         filename:(req,file,cb)=>{
             const uniquestr=generateuniquestring(4) + '_'+file.originalname
@@ -20,6 +20,6 @@ export const multerhost=({extensions = allowedExtensions.image})=>{
 
     }
 
-    const file=multer({filefilter,storage})
+    const file=multer({filefilter,storage}) 
     return file
 }

@@ -1,7 +1,7 @@
 
 export const userRole = {
     user: "user",
-    lower: "lawyer",
+    lawyer: "lawyer",
     admin: "admin",
     owner: "owner"
 }
