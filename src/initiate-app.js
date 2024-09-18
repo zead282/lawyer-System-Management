@@ -22,6 +22,7 @@ export const initiateApp = (app, express) => {
     app.use('/consultation',router.consultationrouter)
     app.use('/lawyer',router.lawyerRouters)
     app.use('/admin',router.adminRoutes)
+    app.use('/payment',router.paymentrouter)
     
 
     app.use(globalResponse,rollbacksaveddocuments,rollbackuploadfiles)
