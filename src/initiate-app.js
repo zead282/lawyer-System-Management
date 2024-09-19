@@ -1,3 +1,4 @@
+import expressAsyncHandler from "express-async-handler"
 import dbconnect from "../db/dbconnections.js"
 import { globalResponse } from "./middlewares/error-handling.middleware.js"
 import { rollbacksaveddocuments } from "./middlewares/rollback-saved-documnets.middleware.js"
@@ -21,6 +22,8 @@ export const initiateApp = (app, express) => {
     app.use('/sub-artical',router.subarticalrouter)
     app.use('/lawyer',router.lawyerRouters)
     app.use('/admin',router.adminRoutes)
+    app.use('/consultation',router.consultationrouter)
+    app.use('/payment',router.paymentrouter)
 
     app.use(globalResponse,rollbacksaveddocuments,rollbackuploadfiles)
     app.listen(port, () => console.log(`Example app listening on port ${port}!`))
