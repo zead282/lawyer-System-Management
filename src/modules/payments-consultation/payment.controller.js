@@ -25,8 +25,6 @@ export const createpayment=async (req,res,next)=>{
             const paymentKey = await generatePaymentKey(token, orderId, userdata,price);
         
             console.log('Payment Key:', paymentKey);
-
-            
             
             // You can now send the payment key to the frontend to use with Paymob's payment iframe or redirect
         

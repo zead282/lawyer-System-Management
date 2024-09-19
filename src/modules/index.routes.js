@@ -7,6 +7,7 @@ import subarticalrouter from './sub-articals/subartical.routes.js'
 import consultationrouter from './consultation/consultation.routes.js'
 import paymentrouter from './payments-consultation/payment.routes.js'
 
+
 export{
     userRouter,
     lawyerRouters,
@@ -15,4 +16,5 @@ export{
     adminRoutes,
     consultationrouter,
     paymentrouter
+
 }
