@@ -7,7 +7,6 @@ export const authenticate = async () => {
       });
   
       const token = response.data.token;
-      console.log('Access Token:', token);
       return token;
     } catch (error) {
       console.error('Error authenticating:', error);
@@ -27,7 +26,6 @@ export const authenticate = async () => {
       });
   
       const orderId = response.data.id;
-      console.log('Order ID:', orderId);
       return orderId;
     } catch (error) {
       console.error('Error creating order:', error);
@@ -59,11 +57,11 @@ export const authenticate = async () => {
           state: 'NA',
         },
         currency: 'EGP', // Set your currency here
-        integration_id:process.env.integration_id_paymob, // Provided by Paymob
+        integration_id:4837522, // Provided by Paymob
       });
   
+  
       const paymentKey = response.data.token;
-      console.log('Payment Key:', paymentKey);
       return paymentKey;
     } catch (error) {
       console.error('Error generating payment key:', error);

@@ -15,3 +15,10 @@ export const userQuestionStatus ={
     Pending:"pending",
     Answered:"answered"
 }
+
+
+export const paymentStatus = {
+    pending:"pending",
+    success:"success",
+    failed:"failed",
+}

@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { paymentStatus } from "../../src/utils/utils.index.js";
 
 const paymentschema=new mongoose.Schema({
     email:{
@@ -16,6 +17,11 @@ const paymentschema=new mongoose.Schema({
     consultationid:{
         type:mongoose.Types.ObjectId,
         ref:'Consultation'
+    },
+    paymentStatus:{
+        type:String,
+        enums:Object.values(paymentStatus),
+        default:paymentStatus.PENDING
     }
 },
 {timestamps:true})
