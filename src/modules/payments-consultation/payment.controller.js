@@ -11,7 +11,7 @@ export const createpayment=async (req,res,next)=>{
     const consultationn=await consultation.findById(consultationid)
     if(!consultationn) return next(Error("consultation not found",404))
 
-        try {
+        
             // 1. Authenticate to get access token
             const price = consultationn.price *10
             const userdata={name,email,phonenumber}
@@ -23,12 +23,10 @@ export const createpayment=async (req,res,next)=>{
         
             // 3. Generate a payment key
             const paymentKey = await generatePaymentKey(token, orderId, userdata,price);
-        
-            console.log('Payment Key:', paymentKey);
-            
-            // You can now send the payment key to the frontend to use with Paymob's payment iframe or redirect
-        
-          } catch (error) {
-            console.error('Payment error:', error);
-          }    
+           
+            // You can now send the payment key to the frontend to use with Paymob's payment gateway    
+            const checkOutSessionLink = `https://accept.paymobsolutions.com/api/acceptance/iframes/${process.env.iframsId}?payment_token=${paymentKey}`;
+
+          res.status(200).json({checkOutSession:checkOutSessionLink})
+          
 }
