@@ -16,4 +16,4 @@ const consultationschema=new mongoose.Schema({
 },
 {timestamps:true})
 
-export default mongoose.models.Consultation || mongoose.model('Consultation',consultationschema)
+export const Consultation =  mongoose.models.Consultation || mongoose.model('Consultation',consultationschema)

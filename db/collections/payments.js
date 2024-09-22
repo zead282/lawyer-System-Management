@@ -18,13 +18,16 @@ const paymentschema=new mongoose.Schema({
         type:mongoose.Types.ObjectId,
         ref:'Consultation'
     },
+    orderid:{
+        type:String
+    },
     paymentStatus:{
         type:String,
         enums:Object.values(paymentStatus),
-        default:paymentStatus.PENDING
+        default:paymentStatus.pending
     }
 },
 {timestamps:true})
 
 
-export default mongoose.models.Payment || mongoose.model('Payment',paymentschema)
+export const Payment =  mongoose.models.Payment || mongoose.model('Payment',paymentschema)
