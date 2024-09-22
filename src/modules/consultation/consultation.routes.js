@@ -10,13 +10,13 @@ const router=Router()
 router.post('/add',authntiaction(),authorization(consultendpoints.owner),expressAsyncHandler(consultationcontroller.addconsultation))
 
 //delete
-router.delete('/delete/:consid',authntiaction(),authorization(consultendpoints.owner),expressAsyncHandler(consultationcontroller.deleteconsultation))
+router.delete('/delete/:consid',authntiaction(),authorization(consultendpoints.owner),expressAsyncHandler(consultationcontroller.deleteConsultation))
 
 //get
 router.get('/get',expressAsyncHandler(consultationcontroller.getconsultations))
 
 //update
-router.put('/update/:consid',authntiaction(),authorization(consultendpoints.owner),expressAsyncHandler(consultationcontroller.updateconsulattion))
+router.put('/update/:consid',authntiaction(),authorization(consultendpoints.owner),expressAsyncHandler(consultationcontroller.updateConsulattion))
 
 
 

@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 export const authenticate = async () => {
     try {
       const response = await axios.post('https://accept.paymobsolutions.com/api/auth/tokens', {
@@ -68,3 +69,22 @@ export const authenticate = async () => {
       throw error;
     }
   };
+
+
+  export  const getTransactionsFromPaymob = async (token) => {
+    
+    try {
+      const response = await axios.get(`https://accept.paymob.com/api/acceptance/subscriptions/${process.env.subscriptions}/transactions?page_size=100`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }, 
+      }
+    );
+      console.log(response);
+      
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching transactions from Paymob:', error.response ? error.response.data : error.message);
+      throw new Error('Failed to fetch transactions');
+    }
+  }
