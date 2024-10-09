@@ -4,8 +4,8 @@ import { globalResponse } from "./middlewares/error-handling.middleware.js"
 import { rollbacksaveddocuments } from "./middlewares/rollback-saved-documnets.middleware.js"
 import { rollbackuploadfiles } from "./middlewares/rollback-uploaded-files.middleware.js"
 import * as router from './modules/index.routes.js'
-
-
+import { cronsschedule } from "./utils/crons.js"
+import { gracefulShutdown } from "node-schedule"
 
 
 export const initiateApp = (app, express) => {
@@ -26,8 +26,12 @@ export const initiateApp = (app, express) => {
     app.use('/consultation',router.consultationrouter)
     app.use('/payment',router.paymentrouter)
 
-
+    app.use('*',(req,res,next)=>{
+        res.status(404).json({message:"notfound"})
+    })
     app.use(globalResponse,rollbacksaveddocuments,rollbackuploadfiles)
+    cronsschedule()
+    
     app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 

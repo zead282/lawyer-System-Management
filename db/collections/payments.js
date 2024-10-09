@@ -25,6 +25,9 @@ const paymentschema=new mongoose.Schema({
         type:String,
         enums:Object.values(paymentStatus),
         default:paymentStatus.pending
+    },
+    price:{
+        type:Number
     }
 },
 {timestamps:true})
